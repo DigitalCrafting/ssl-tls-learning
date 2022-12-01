@@ -8,6 +8,8 @@
 #include <netinet/in.h>
 #include <unistd.h>
 
+#include "base64.h"
+
 #define MAX_GET_COMMAND 255
 #define BUFFER_SIZE 255
 #define HTTP_PORT 80
@@ -117,6 +119,23 @@ int http_get(int connection,
     sprintf(get_command, "Host: %s\r\n", host);
     if (send(connection, get_command, strlen(get_command), 0) == -1) {
         return -1;
+    }
+
+    if (proxy_user) {
+        int credentials_len = strlen(proxy_user) + strlen(proxy_password) + 1;
+        char *proxy_credentials = malloc(credentials_len);
+        char *auth_string = malloc(((credentials_len * 4) / 3) + 1);
+        sprintf(proxy_credentials, "%s:%s", proxy_user, proxy_password);
+        base64_encode(proxy_credentials, credentials_len, auth_string);
+        sprintf(get_command, "Proxy-Authorization: BASIC %s\r\n", auth_string);
+
+        if (send(connection, get_command, strlen(get_command), 0) == -1) {
+            free(proxy_credentials);
+            free(auth_string);
+            return -1;
+        }
+        free(proxy_credentials);
+        free(auth_string);
     }
 
     sprintf(get_command, "Connection: close\r\n\r\n");
