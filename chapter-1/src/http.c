@@ -67,7 +67,7 @@ int parse_proxy_param(char *proxy_spec, char **proxy_host, int *proxy_port, char
         *proxy_user = proxy_spec;
         *login_sep = '\0';
         *proxy_password = colon_sep + 1;
-        proxy_spec - login_sep + 1;
+        proxy_spec = login_sep + 1;
     }
 
     // Ignore a '/' added at the end sometimes
