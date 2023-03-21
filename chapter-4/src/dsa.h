@@ -1,7 +1,7 @@
 #ifndef DSA_H
 #define DSA_H
 
-#include "../../chapter-3/src/huge.h"
+#include "huge.h"
 
 typedef struct {
     huge g;

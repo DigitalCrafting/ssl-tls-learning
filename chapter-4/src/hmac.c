@@ -4,7 +4,7 @@
 #include <assert.h>
 #include "sha.h"
 #include "md5.h"
-#include "../../chapter-2/src/hex.h"
+#include "hex.h"
 #include "digest.h"
 #include "hmac.h"
 

@@ -4,7 +4,7 @@
 #include "digest.h"
 #include "md5.h"
 #include "sha.h"
-#include "../../chapter-2/src/hex.h"
+#include "hex.h"
 
 /**
  * Generic digest hash computation. The hash should be set to its initial

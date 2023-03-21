@@ -1,7 +1,7 @@
 #ifndef ECC_H
 #define ECC_H
 
-#include "../../chapter-3/src/huge.h"
+#include "huge.h"
 
 typedef struct {
     huge x;

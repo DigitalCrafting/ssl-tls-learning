@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "sha.h"
-#include "../../chapter-2/src/hex.h"
+#include "hex.h"
 #include "digest.h"
 #include "dsa.h"
 

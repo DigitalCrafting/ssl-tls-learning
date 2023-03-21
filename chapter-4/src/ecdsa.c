@@ -1,10 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <arpa/inet.h>
-#include "../../chapter-2/src/hex.h"
+#include "hex.h"
 #include "sha.h"
 #include "digest.h"
-#include "../../chapter-3/src/huge.h"
+#include "huge.h"
 #include "ecdsa.h"
 
 void ecdsa_sign( elliptic_curve *params, 
